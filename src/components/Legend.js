@@ -6,8 +6,8 @@ export default function Legend(props) {
   return (
     <fieldset>
         {/* {console.log(props)} */}
-        <legend>Legend:</legend>
-        <table style={{width:"fit-content",borderCollapse: "separate",  borderSpacing: "20px 15px", borderColor: "transparent"}}>
+        <legend><b>Legend:</b></legend>
+        <table style={{width:"fit-content",borderCollapse: "separate",  borderColor: "transparent"}}>
             <caption>AQI [level]</caption>
                 <tbody>
 

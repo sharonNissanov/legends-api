@@ -7,7 +7,7 @@
             "description": "Air Quality Index"
         },
         {
-            "Id": 1,
+            "Id": 0,
             "Name": "Pollutant",
             "LegentId": 1,
             "description": "Pollutant"
@@ -71,6 +71,12 @@
         {
             "Id": 0,
             "Name": "All",
+            "Desc": "",
+            "MonitorTypeId": 0
+        },
+        {
+            "Id": 50,
+            "Name": "HI",
             "Desc": "",
             "MonitorTypeId": 0
         },

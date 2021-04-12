@@ -4,7 +4,7 @@ import React from 'react';
 
 export default function Menu(props) {
   return (
-    <table>
+    <table className="menu">
       <tbody>
         <tr>
           <th>{props.title}</th>
