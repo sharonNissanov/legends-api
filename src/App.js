@@ -7,32 +7,39 @@ import obj from'./Legends.json';
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {isToggleOn: false};
+    this.state = {
+      isToggleOn: false,
+      clicked_button_id: null,
+      clicked_button_name: null
+    };
 
-    this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick() {
+  handleClick(id, name) {
     this.setState(state => ({
-      isToggleOn: !state.isToggleOn
+      isToggleOn: !state.isToggleOn,
+      clicked_button_id:id,
+      clicked_button_name:name,
     }));
-    alert(this.state.isToggleOn)
+  
+  console.log(id, name);
   }
 
   render() {
-    var buttons_names = JSON.stringify(obj.MonitorType);
-   
     return (
     <div className="App">
       <header className="App-header">
+        
         {/* display buttons inline */}
         <div> 
           {obj.MonitorType.map((a)=>
-          //console.log(a.Name))
-          <Button name={a.Name}  onClick={this.handleClick} />
+          <Button key={a.Id} name={a.Name} 
+          onClick={()=>this.handleClick(a.Id, a.Name) } />
+          
           )}
+           {/* <Menu /> */}
         </div>
-        <Menu/>
+        <Menu title={this.state.clicked_button_name} id={this.state.clicked_button_id} names={obj.Monitor}/>
       </header>
 
       

@@ -1,25 +1,25 @@
 import React from 'react';
 
+//display the correct menu dynamically
+
 export default function Menu(props) {
   return (
-    <div>
     <table >
       <tbody>
         <tr>
-          <th>All</th>
+          <th>{props.title}</th>
         </tr>
-        <tr>
-          <td>Data 1</td>
-        </tr>
-        <tr>
-          <td>Data 2</td>
-        </tr>
-        <tr>
-          <td>Data 3</td>
-        </tr>
+          {props.names.map((name)=>name.MonitorTypeId==props.id ?
+            <tr>
+              <td>{name.Name}</td>
+            </tr>
+            :null
+          )}
 
       </tbody>
     </table>
-    </div>
+
+
+    
   );
 }
