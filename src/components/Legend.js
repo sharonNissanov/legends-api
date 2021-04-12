@@ -2,33 +2,30 @@ import React from 'react';
 
 
 export default function Legend(props) {
+    var i =0;
   return (
     <fieldset>
+        {/* {console.log(props)} */}
         <legend>Legend:</legend>
-        <table style={{width:"300px",borderCollapse: "separate",  borderSpacing: "20px 15px", borderColor: "transparent"}}>
-            <caption>Static title</caption>
+        <table style={{width:"fit-content",borderCollapse: "separate",  borderSpacing: "20px 15px", borderColor: "transparent"}}>
+            <caption>AQI [level]</caption>
                 <tbody>
-                    <tr>
-                        <th style={{borderColor: "transparent", backgroundColor:"black", padding: "8px"}}></th>
-                        <th style={{borderColor: "transparent", textAlign:"left"}} >data</th>
-                    </tr>
 
-                    <tr>
-                        <th style={{borderColor: "transparent", backgroundColor:"yellow", padding: "8px"}}></th>
-                        <th style={{borderColor: "transparent", textAlign:"left"}} >data1</th>
-                    </tr>
+                {props.values.map((value)=>value.Id===props.id ?
+            
+                    value.tags.map((tag)=>
+                        <tr key={i++}>
+                            <th style={{borderColor: "transparent", backgroundColor:tag.Color, padding: "10px"}}></th>
+                            <th style={{borderColor: "transparent", textAlign:"left"}} >{tag.Label}</th>
+                        </tr>
+                    
+                    )
+                
+                    :null
+                )}
 
-                    <tr>
-                        <th style={{borderColor: "transparent", backgroundColor:"green", padding: "8px"}}></th>
-                        <th style={{borderColor: "transparent", textAlign:"left"}} >data2</th>
-                    </tr>
 
-                    <tr>
-                        <th style={{borderColor: "transparent", backgroundColor:"red", padding: "8px"}}></th>
-                        <th style={{borderColor: "transparent", textAlign:"left"}} >data3</th>
-                    </tr>
-
-                </tbody>
+            </tbody>
         </table>
 
     </fieldset>

@@ -10,7 +10,7 @@ export default function Menu(props) {
           <th>{props.title}</th>
         </tr>
           {props.names.map((name)=>name.MonitorTypeId===props.id ?
-            <tr key={name.Id} >
+            <tr key={name.Id} onClick={props.onClick} >
               <td>{name.Name}</td>
             </tr>
             :null

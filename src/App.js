@@ -11,19 +11,29 @@ export default class App extends React.Component {
     this.state = {
       isToggleOn: false,
       clicked_button_id: null,
-      clicked_button_name: null
-    };
+      clicked_button_name: null,
+      clicked_button_legentId:null,
 
+
+      show_legend:false,
+    };
   }
 
-  handleClick(id, name) {
+  handleClickButton(id, name, legentId) {
     this.setState(state => ({
       isToggleOn: !state.isToggleOn,
       clicked_button_id:id,
       clicked_button_name:name,
+      clicked_button_legentId: legentId,
+      show_legend:false,
+
     }));
-  
-  // console.log(id, name);
+  }
+
+  handleClickMonitor() {
+    this.setState(state => ({
+      show_legend:true,
+    }));
   }
 
   render() {
@@ -35,18 +45,27 @@ export default class App extends React.Component {
         <div> 
           {obj.MonitorType.map((a)=>
           <Button key={a.Id} name={a.Name} 
-          onClick={()=>this.handleClick(a.Id, a.Name) } />
+          onClick={()=>this.handleClickButton(a.Id, a.Name, a.LegentId) } />
           
           )}
         </div>
+
+         {/* display the menu */}
         {
           this.state.clicked_button_name?
-            <Menu title={this.state.clicked_button_name} id={this.state.clicked_button_id} names={obj.Monitor}/>
+            <Menu title={this.state.clicked_button_name} id={this.state.clicked_button_id} names={obj.Monitor} 
+            onClick={()=>this.handleClickMonitor() }/>
           :null
         }
 
+        {/* display the legend */}
+        {
+          this.state.show_legend ?
+            <Legend id={this.state.clicked_button_legentId} values={obj.Legends} />
+          :null
+        }
 
-        <Legend/>
+        
       </header>
 
       
