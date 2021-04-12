@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Button from './components/Button'
 import Menu from './components/Menu'
+import Legend from './components/Legend'
 import obj from'./Legends.json';
 
 export default class App extends React.Component {
@@ -22,7 +23,7 @@ export default class App extends React.Component {
       clicked_button_name:name,
     }));
   
-  console.log(id, name);
+  // console.log(id, name);
   }
 
   render() {
@@ -37,9 +38,15 @@ export default class App extends React.Component {
           onClick={()=>this.handleClick(a.Id, a.Name) } />
           
           )}
-           {/* <Menu /> */}
         </div>
-        <Menu title={this.state.clicked_button_name} id={this.state.clicked_button_id} names={obj.Monitor}/>
+        {
+          this.state.clicked_button_name?
+            <Menu title={this.state.clicked_button_name} id={this.state.clicked_button_id} names={obj.Monitor}/>
+          :null
+        }
+
+
+        <Legend/>
       </header>
 
       
