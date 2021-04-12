@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import Button from './components/Button'
+import Menu from './components/Menu'
 import obj from'./Legends.json';
 
 export default class App extends React.Component {
@@ -24,11 +25,17 @@ export default class App extends React.Component {
     return (
     <div className="App">
       <header className="App-header">
-     { obj.MonitorType.map((a)=>
-     //console.log(a.Name))
-     <Button name={a.Name}  onClick={this.handleClick} />
-     )}
+        {/* display buttons inline */}
+        <div> 
+          {obj.MonitorType.map((a)=>
+          //console.log(a.Name))
+          <Button name={a.Name}  onClick={this.handleClick} />
+          )}
+        </div>
+        <Menu/>
       </header>
+
+      
     </div>
     );
   }

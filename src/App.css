@@ -36,3 +36,25 @@
     transform: rotate(360deg);
   }
 }
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 5px;
+  text-align: center;
+}
+table{
+  width: 100px;
+}
+.Button{
+  background-color:grey;
+  border: solid;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block; ;
+  font-size: 16px;
+}
