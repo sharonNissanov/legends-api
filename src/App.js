@@ -1,25 +1,37 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import Button from './components/Button'
+import obj from'./Legends.json';
 
-function App() {
-  return (
+export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {isToggleOn: false};
+
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    this.setState(state => ({
+      isToggleOn: !state.isToggleOn
+    }));
+    alert(this.state.isToggleOn)
+  }
+
+  render() {
+    var buttons_names = JSON.stringify(obj.MonitorType);
+   
+    return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+     { obj.MonitorType.map((a)=>
+     //console.log(a.Name))
+     <Button name={a.Name}  onClick={this.handleClick} />
+     )}
       </header>
     </div>
-  );
+    );
+  }
 }
 
-export default App;
+
