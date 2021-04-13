@@ -6,8 +6,9 @@ export default function Legend(props) {
   return (
     <fieldset>
         {/* {console.log(props)} */}
-        <legend><b>Legend:</b></legend>
+        {/* <legend><b style={{ textTransform: "uppercase"}}>{props.title} LEGEND</b></legend> */}
         <table style={{width:"fit-content",borderCollapse: "separate",  borderColor: "transparent"}}>
+            <caption><b style={{ textTransform: "uppercase"}}>{props.title} LEGEND</b></caption>
             <caption>AQI [level]</caption>
                 <tbody>
 
