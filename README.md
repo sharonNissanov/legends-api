@@ -1,6 +1,6 @@
 # Display data from json file
 
-👍 This is app developed with: React JS. 
+👍 This is app developed with: React JS. \
 👍 The app displays data from the json file \
 👍 The app developed dynamically as possible \
 👍 You can add objects to the json file and see the changes immediately on the screen \
