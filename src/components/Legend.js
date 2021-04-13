@@ -1,12 +1,10 @@
 import React from 'react';
 
-
+//this function creates the wanted legend in a dynamical way, with the data that received from the props
 export default function Legend(props) {
     var i =0;
   return (
     <fieldset>
-        {/* {console.log(props)} */}
-        {/* <legend><b style={{ textTransform: "uppercase"}}>{props.title} LEGEND</b></legend> */}
         <table style={{width:"fit-content",borderCollapse: "separate",  borderColor: "transparent"}}>
             <caption><b style={{ textTransform: "uppercase"}}>{props.title} LEGEND</b></caption>
             <caption>AQI [level]</caption>
